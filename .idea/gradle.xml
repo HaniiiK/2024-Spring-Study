@@ -48,27 +48,32 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
-        <option name="delegatedBuild" value="true" />
-        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Ryan/스프링 입문/hello-spring" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Ryan/01_스프링 입문/hello-spring" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/Ryan/스프링 입문/hello-spring" />
+            <option value="$PROJECT_DIR$/Ryan/01_스프링 입문/hello-spring" />
           </set>
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
-        <option name="delegatedBuild" value="false" />
-        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Ryan/스프링 핵심 원리 - 기본편/core" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Ryan/02_스프링 핵심 원리 - 기본편/core" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/Ryan/스프링 핵심 원리 - 기본편/core" />
+            <option value="$PROJECT_DIR$/Ryan/02_스프링 핵심 원리 - 기본편/core" />
           </set>
         </option>
       </GradleProjectSettings>
+<!--      <GradleProjectSettings>-->
+<!--        <option name="distributionType" value="DEFAULT_WRAPPED" />-->
+<!--        <option name="externalProjectPath" value="$PROJECT_DIR$/../hello-spring" />-->
+<!--        <option name="modules">-->
+<!--          <set>-->
+<!--            <option value="$PROJECT_DIR$/../hello-spring" />-->
+<!--          </set>-->
+<!--        </option>-->
+<!--      </GradleProjectSettings>-->
     </option>
     <option name="offlineMode" value="true" />
   </component>
