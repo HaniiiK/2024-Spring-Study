@@ -4,5 +4,13 @@
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="스프링 입문.hello-spring" target="17" />
+      <module name="스프링 입문.hello-spring.main" target="17" />
+      <module name="스프링 입문.hello-spring.test" target="17" />
+      <module name="스프링 핵심 원리 - 기본편.core" target="17" />
+      <module name="스프링 핵심 원리 - 기본편.core.main" target="17" />
+      <module name="스프링 핵심 원리 - 기본편.core.test" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
