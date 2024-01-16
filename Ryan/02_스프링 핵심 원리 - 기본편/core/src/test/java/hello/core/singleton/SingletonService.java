@@ -1,17 +1,19 @@
 package hello.core.singleton;
 
 public class SingletonService {
-    // -> 클래스 레벨에 올라가서 하나만 존재하게 된다.
+    // static -> 클래스 레벨에 올라가서 하나만 존재하게 된다.
     //스태틱 영역에 하나만 만들어져서 올라가게된다.
     private static final SingletonService instance = new SingletonService();
 
     //싱글톤 객체를 외부에서 가져다 쓸 수 있도록 하기위해 public으로 메서드를 선언한다.
     //싱글톤 패턴에서 인스턴스를 얻기 위한 메서드
+    //jvm뜰 때 객체 생성해서 instance에 넣어둠. 조회할 때 getInstance()
     public static SingletonService getInstance() {
         return instance;
     }
 
     //private 생성자: 생성을 막기위해
+    //->private 다른 class에서 SingletonService singletonService = new SingletonService(); 안됨
     private SingletonService() {
     }
 

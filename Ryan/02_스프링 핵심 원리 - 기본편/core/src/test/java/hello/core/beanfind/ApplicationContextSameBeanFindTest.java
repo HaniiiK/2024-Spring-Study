@@ -19,7 +19,8 @@ class ApplicationContextSameBeanFindTest {
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SameBeanConfig.class);
 
     @Test
-    @DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 중복 오류가 발생한다") //->  스프링 컨테이너가 어떤 빈을 선택해야 할지 판단할 수 없기 때문
+    @DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 중복 오류가 발생한다")
+        //->  스프링 컨테이너가 어떤 빈을 선택해야 할지 판단할 수 없기 때문
     void findBeanByTypeDuplicate() {
         //MemberRepository bean = ac.getBean(MemberRepository.class);
         //반환타입만 지정해줬다. -> NoUniqueBeanDefinitionExceptio 발생. 예외 던져줌. 결과 비교 성공!(예외 터지는게 테스트 성공임 )
@@ -31,8 +32,8 @@ class ApplicationContextSameBeanFindTest {
     @Test
     @DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 빈 이름을 지정하면 된다")
     void findBeanByName() {
-               // MemberRepository memberRepository = ac.getBean( MemberRepository.class);
-//-> 이름 지정해 주면 같은 타입 있어도 중복 오류 발생x
+        // MemberRepository memberRepository = ac.getBean( MemberRepository.class);
+//-> 조회할 때 이름 지정해 주면 같은 타입 있어도 중복 오류 발생x
         MemberRepository memberRepository = ac.getBean("memberRepository1", MemberRepository.class);
         assertThat(memberRepository).isInstanceOf(MemberRepository.class);
     }
@@ -45,10 +46,10 @@ class ApplicationContextSameBeanFindTest {
         // 빈의 인스턴스(MemberRepository)'밸류'로 매핑한다.
         Map<String, MemberRepository> beansOfType = ac.getBeansOfType(MemberRepository.class);
         for (String key : beansOfType.keySet()) {
-            System.out.println("key = " + key + " value = " +
-                    beansOfType.get(key));
+            System.out.println("key = " + key + " value = " + beansOfType.get(key));
         }
         System.out.println("beansOfType = " + beansOfType);
+        //memberRepository1(), memberRepository2() ->2개의 빈이 조회 된다.
         assertThat(beansOfType.size()).isEqualTo(2);
     }
 
@@ -58,7 +59,7 @@ class ApplicationContextSameBeanFindTest {
     static class SameBeanConfig {
         @Bean
         public MemberRepository memberRepository1() {
-            return new MemoryMemberRepository();
+            return new MemoryMemberRepository(); //파라미터 값이 다를 수 있으므로 Bean의 이름이 다르고 객체 클래스 타입이 같을 수 있다.
         }
 
         @Bean

@@ -51,7 +51,8 @@ public class AppConfig_sub {
     //객체의 의존관계를 OrderServiceImpl에 주입해준다 new MemoryMemberRepository(),new FixDiscountPolicy()에 의해 생성된 새로운 객체인 MemoryMemberRepository, FixDiscountPolicy
     @Bean
     public OrderService orderService() {
-        return new OrderServiceImpl(memberRepository(), discountPolicy());
+//        return new OrderServiceImpl(memberRepository(), discountPolicy());
+        return null;
     }
 
     @Bean //상위계층인 할인정책 -> 갈아끼우기만 하면 돼서 DIP 원칙은 지킨다
