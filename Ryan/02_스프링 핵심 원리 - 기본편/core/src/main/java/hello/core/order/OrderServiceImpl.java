@@ -1,20 +1,21 @@
 package hello.core.order;
 
+import hello.core.discount.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
-import hello.core.discount.FixDiscountPolicy;
-import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
-import hello.core.member.MemoryMemberRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
 public class OrderServiceImpl implements OrderService {
 
-   @Autowired  private  MemberRepository memberRepository;
-   @Autowired  private  DiscountPolicy discountPolicy;
+     private  MemberRepository memberRepository;
+     private  DiscountPolicy discountPolicy;
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
@@ -24,7 +25,13 @@ public class OrderServiceImpl implements OrderService {
         return new Order(memberId, itemName, itemPrice, discountPrice);
     }
 
-//테스트용
+
+
+    public DiscountPolicy getDiscountPolicy() {
+        return discountPolicy;
+    }
+
+    //테스트용
     public MemberRepository getMemberRepository() {
         return memberRepository;
     }

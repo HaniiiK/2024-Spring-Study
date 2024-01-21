@@ -8,10 +8,15 @@
         soutv  입력하고 enter -> 변수 자동 sysout 찍어줌
         command shift v : 문장의 위아래 순서 바꿔줌
         command shif t : 테스트 만들기
-자동 import ctrl option O
+자동 import: ctrl option O
 ***option + enter static메서드 Asserts
+
+option command N 변수 return 합치기
 soutm sysout찍을 때 call~
+
 command option B 구현체로 바로 갈 수 있다
+command option  N 합치기. inline
+option command B 구현체로 바로 들어감
 
 iter: for문 자동 완성
 

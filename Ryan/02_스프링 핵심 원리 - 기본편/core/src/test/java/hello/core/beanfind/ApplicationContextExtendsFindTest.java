@@ -65,7 +65,7 @@ class ApplicationContextExtendsFindTest {
         }
     }
 
-    @Configuration
+//    @Configuration
     static class TestConfig {
         @Bean
         //DiscountPolicy 보고 역할을 확인 하기 편하다.
