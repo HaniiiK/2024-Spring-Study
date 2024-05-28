@@ -32,7 +32,7 @@ public class LoginController {
         return "login/loginForm";
     }
 
-    @PostMapping("/login")
+//    @PostMapping("/login")
     public String login(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult, HttpServletResponse response) {
         if (bindingResult.hasErrors()) {
             return "login/loginForm";
@@ -54,11 +54,40 @@ public class LoginController {
 
     }
 
-    @PostMapping("/logout")
+    @PostMapping("/login")
+    public String loginV2(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult, HttpServletResponse response) {
+        if (bindingResult.hasErrors()) {
+            return "login/loginForm";
+        }
+
+        Member loginMember = loginService.login(form.getLoginId(), form.getPassword());
+
+        if (loginMember == null) {
+            bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");
+            return "login/loginForm";
+        }
+
+        //로그인 성공 처리
+
+        //세션 관리자를 통해 세션을 생성하고, 회원 데이터 보관
+        sessionManager.createSession(loginMember, response);
+
+        return "redirect:/";
+
+    }
+
+//    @PostMapping("/logout")
     public String logout(HttpServletResponse response) {
         expireCookie(response, "memberId");
         return "redirect:/";
     }
+
+    @PostMapping("/logout")
+    public String logoutV2(HttpServletRequest request) {
+        sessionManager.expire(request);
+        return "redirect:/";
+    }
+
 
     private void expireCookie(HttpServletResponse response, String cookieName) {
         Cookie cookie = new Cookie(cookieName, null);
